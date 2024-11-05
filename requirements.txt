@@ -35,7 +35,6 @@ requests==2.32.3
 SecretStorage==3.3.3
 setuptools==75.3.0
 soupsieve==2.6
-twilio==9.3.6
 urllib3==2.2.3
 yagmail==0.15.293
 yarl==1.17.1
