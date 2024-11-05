@@ -1,6 +1,3 @@
-Here's a README for your Python SMS-sending script using the SMS Chef API integration:
-
----
 
 # SMS Sending with SMS Chef API Integration & Web Scrapping
 
