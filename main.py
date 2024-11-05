@@ -1,5 +1,7 @@
 import os
 import requests
+import schedule
+import time
 # from twilio.rest import Client
 from data_fetching import fetch_data
 from extract_data import extract_data
@@ -31,7 +33,7 @@ def send_sms(message):
         print("Error")
 
 
-def getMessage():
+def getMessage(data):
     # Initialize lists to hold prices
     crop = []
     average_prices = []
@@ -70,14 +72,23 @@ def getMessage():
 
 
 
-# get all the data first 
-fetch_data()
 
-# filter data to be send 
-data = extract_data()
+def job():
+    # get all the data first 
+    fetch_data()
 
-# extract the message from the data 
-message = getMessage()
+    # filter data to be send 
+    data = extract_data()
 
-# send the sms 
-send_sms(message)
+    # extract the message from the data 
+    message = getMessage(data)
+
+    # send the sms 
+    send_sms(message)
+
+# Schedule job weekly
+schedule.every().week.do(job)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
