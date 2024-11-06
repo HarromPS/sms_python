@@ -37,7 +37,12 @@ This project is a Python-based SMS notification system that sends market price u
    device=YOUR_DEVICE_ID
    url=https://www.cloud.smschef.com/api/send/sms
    recipient_number=RECIPIENT_PHONE_NUMBER
+
+   opening_url = "https://www.commodityonline.com/mandiprices/"
+   closing_url = "/maharashtra/karanja"
    ```
+
+   change the opening and closing url as per your requirements
 
 4. **Run the Script**:
    ```bash
