@@ -42,6 +42,6 @@ jobs:
           account_sid : ${{ secrets.account_sid}}
           auth_token : ${{ secrets.auth_token }}
           twilio_number : ${{ secrets.twilio_number }}
-          recipient_number : ${{ secrets.recipient_number}
+          recipient_number : ${{ secrets.recipient_number}}
           device : ${{ secrets.device }}
         run: python main.py
