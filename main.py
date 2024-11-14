@@ -71,8 +71,6 @@ def getMessage(data):
     return final_message
 
 
-
-
 def job():
     # get all the data first 
     fetch_data()
