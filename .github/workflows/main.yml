@@ -5,7 +5,7 @@ name: scheduing the commodity apix
 on:
   # it is scheduled on monday
   schedule:   
-  - cron: '* * * * *' # At every minute
+  - cron: '1 * * * *' # At every minute
 
 # actual action/code running on cloud for automation tasks
 jobs:
