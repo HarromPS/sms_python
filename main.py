@@ -84,9 +84,4 @@ def job():
     # send the sms 
     send_sms(message)
 
-# Schedule job weekly
-schedule.every().week.do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+job();
