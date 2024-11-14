@@ -1,0 +1,43 @@
+# name of workflow servers as a label 
+name: scheduing the commodity apix
+
+# on property which tells when to run 
+on:
+  # it is scheduled on monday
+  schedule:   
+  - cron: '* * * * *' # At every minute
+
+# actual action/code running on cloud for automation tasks
+jobs:
+  # job is build on
+  build:
+    # which runs on 
+    runs-on: ubuntu-latest
+
+    # performs the following steps
+    steps:
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # gets the repo code 
+
+      - name: setup python
+        uses: actions/setup-python@v4
+      
+      # - name: Secrets Sync Action
+      #   uses: jpoehnelt/secrets-sync-action@v1.9.0
+
+      - name: install python packages # installs dependencies 
+        run: |
+          python -m pip install --upgrade pip  
+          pip install -r requirements.txt
+          
+      - name: execute py script # run main.py
+        env:
+          # configure environment variables
+          url : ${{ secrets.url}}
+          opening_url : ${{ secrets.opening_url }}
+          closing_url : ${{ secrets.closing_url }}
+          api_key : ${{ secrets.api_key }}
+          recipient_number : ${{ secrets.recipient_number}}
+          device : ${{ secrets.device }}
+        run: python main.py
